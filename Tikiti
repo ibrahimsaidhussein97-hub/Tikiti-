@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GolaTickets | Bayern Munich vs Ajax</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #07140f;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0c2419;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #19c777;
+    }
+
+    header h1 {
+      color: #19e68a;
+      font-size: 32px;
+    }
+
+    header p {
+      color: #d0dfd7;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 55px 20px;
+      background: linear-gradient(135deg, #123e2b, #07140f);
+    }
+
+    .hero h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      margin: 8px 0;
+    }
+
+    .notice {
+      background: #3b2d0b;
+      color: #ffe8a3;
+      padding: 12px;
+      margin: 20px auto;
+      max-width: 800px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: auto;
+      padding: 25px 18px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 15px 0 25px;
+      font-size: 26px;
+    }
+
+    .tickets {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .ticket {
+      background: #10251b;
+      border: 1px solid #24523b;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .ticket h3 {
+      color: #19e68a;
+      font-size: 23px;
+    }
+
+    .price {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .ticket button,
+    .submit-button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 7px;
+      background: #19c777;
+      color: #06130c;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    button:hover {
+      background: #12a965;
+    }
+
+    .booking {
+      max-width: 600px;
+      margin: 35px auto;
+      background: #10251b;
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .booking label {
+      display: block;
+      margin-top: 14px;
+      margin-bottom: 5px;
+    }
+
+    .booking input,
+    .booking select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #456b56;
+      background: #f6fff9;
+      color: #10251b;
+      font-size: 16px;
+    }
+
+    .total {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #19e68a;
+      font-weight: bold;
+    }
+
+    .small-note {
+      color: #c2d2c8;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    footer {
+      background: #0c2419;
+      text-align: center;
+      padding: 22px;
+      margin-top: 30px;
+      color: #c2d2c8;
+    }
+
+    @media (max-width: 500px) {
+      .hero h2 {
+        font-size: 25px;
+      }
+
+      header h1 {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>⚽ GolaTickets</h1>
+    <p>Your football ticket website concept</p>
+  </header>
+
+  <section class="hero">
+    <h2>Bayern Munich vs Ajax</h2>
+    <p>🔥 A European football event in Kenya</p>
+    <p><strong>Date:</strong> Tuesday, 5 January 2027</p>
+    <p><strong>Venue:</strong> Raila Odinga International Stadium</p>
+    <p><strong>Location:</strong> Talanta Sports City, Nairobi, Kenya</p>
+
+    <div class="notice">
+      <strong>Demo website:</strong> The ticket prices below are proposed
+      prices for testing the website. Official ticket categories, prices,
+      availability and sale terms must be confirmed by the official organizer.
+      This page does not issue valid match tickets.
+    </div>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title">Choose Your Ticket</h2>
+
+    <div class="tickets">
+      <div class="ticket">
+        <h3>Regular</h3>
+        <p>Standard ticket concept</p>
+        <div class="price">KSh 300</div>
+        <button onclick="chooseTicket('Regular')">
+          Select Regular
+        </button>
+      </div>
+
+      <div class="ticket">
+        <h3>VIP</h3>
+        <p>VIP ticket concept</p>
+        <div class="price">KSh 1,000</div>
+        <button onclick="chooseTicket('VIP')">
+          Select VIP
+        </button>
+      </div>
+
+      <div class="ticket">
+        <h3>VVIP</h3>
+        <p>Premium ticket concept</p>
+        <div class="price">KSh 2,000</div>
+        <button onclick="chooseTicket('VVIP')">
+          Select VVIP
+        </button>
+      </div>
+    </div>
+
+    <section class="booking">
+      <h2>Booking Demo</h2>
+
+      <form id="bookingForm">
+        <label for="customerName">Your full name</label>
+        <input
+          type="text"
+          id="customerName"
+          placeholder="Enter your full name"
+          required
+        >
+
+        <label for="phone">M-Pesa phone number</label>
+        <input
+          type="tel"
+          id="phone"
+          placeholder="0712345678"
+          pattern="(?:\\+254|254|0)7[0-9]{8}"
+          title="Enter a Kenyan mobile number, for example 0712345678"
+          required
+        >
+
+        <label for="ticketType">Ticket category</label>
+        <select id="ticketType" onchange="calculateTotal()">
+          <option value="Regular">Regular — KSh 300</option>
+          <option value="VIP">VIP — KSh 1,000</option>
+          <option value="VVIP">VVIP — KSh 2,000</option>
+        </select>
+
+        <label for="quantity">Number of tickets</label>
+        <input
+          type="number"
+          id="quantity"
+          min="1"
+          max="10"
+          value="1"
+          onchange="calculateTotal()"
+          oninput="calculateTotal()"
+          required
+        >
+
+        <div class="total" id="totalPrice">
+          Total: KSh 300
+        </div>
+
+        <button class="submit-button" type="submit">
+          Test Booking
+        </button>
+
+        <p class="small-note">
+          This is a front-end demonstration only. It does not reserve a seat,
+          send an M-Pesa payment request, or generate a valid ticket.
+        </p>
+      </form>
+    </section>
+
+    <section style="text-align:center; padding:20px;">
+      <h2>Official Ticket Information</h2>
+      <p>Check the official stadium website for ticket announcements.</p>
+      <p>
+        <a
+          href="https://talantasportscity.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="color:#19e68a;"
+        >
+          Visit Talanta Sports City
+        </a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 GolaTickets — Website learning project</p>
+    <p>Built for football fans in Kenya ⚽</p>
+  </footer>
+
+  <script>
+    const prices = {
+      Regular: 300,
+      VIP: 1000,
+      VVIP: 2000
+    };
+
+    function chooseTicket(category) {
+      document.getElementById("ticketType").value = category;
+      calculateTotal();
+
+      document.getElementById("bookingForm").scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+    function calculateTotal() {
+      const category = document.getElementById("ticketType").value;
+      const quantity = Number(
+        document.getElementById("quantity").value
+      );
+
+      const safeQuantity = Math.min(10, Math.max(1, quantity || 1));
+      const total = prices[category] * safeQuantity;
+
+      document.getElementById("totalPrice").textContent =
+        "Total: KSh " + total.toLocaleString("en-KE");
+    }
+
+    document.getElementById("bookingForm").addEventListener(
+      "submit",
+      function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("customerName").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const category = document.getElementById("ticketType").value;
+        const quantity = Number(
+          document.getElementById("quantity").value
+        );
+
+        const kenyanPhone = /^(?:\+254|254|0)7[0-9]{8}$/;
+
+        if (!name) {
+          alert("Please enter your full name.");
+          return;
+        }
+
+        if (!kenyanPhone.test(phone)) {
+          alert("Please enter a valid Kenyan mobile number.");
+          return;
+        }
+
+        if (!Number.isInteger(quantity) || quantity < 1 || quantity > 10) {
+          alert("Choose between 1 and 10 tickets.");
+          return;
+        }
+
+        const total = prices[category] * quantity;
+
+        alert(
+          "GolaTickets demo\\n\\n" +
+          "Name: " + name + "\\n" +
+          "Category: " + category + "\\n" +
+          "Quantity: " + quantity + "\\n" +
+          "Demo total: KSh " + total.toLocaleString("en-KE") +
+          "\\n\\nNo booking or payment has been made."
+        );
+      }
+    );
+
+    calculateTotal();
+  </script>
+
+</body>
+</html>
